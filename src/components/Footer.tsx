@@ -8,7 +8,7 @@ export function Footer() {
   const { t } = useTranslation();
 
   return (
-    <footer className="bg-[#F2F4F7] dark:bg-[#0F172A] text-gray-700 dark:text-gray-300 border-t border-gray-200 dark:border-gray-700 transition-colors duration-300">
+    <footer className="text-gray-700 dark:text-gray-300 border-t border-gray-200 dark:border-gray-700 transition-colors duration-300" style={{ backgroundColor: 'hsl(var(--background))' }}>
       <div className="container mx-auto px-4 py-8">
         <div className="flex flex-col items-center gap-6">
           <div className="flex items-center gap-4">

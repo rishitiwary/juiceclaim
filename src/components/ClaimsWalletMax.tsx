@@ -187,7 +187,7 @@ export function ClaimsWalletMax() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F7F9FF] dark:bg-[#0F172A]">
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: 'hsl(var(--background))' }}>
       <Header />
 
       <main className="flex-grow pt-24">

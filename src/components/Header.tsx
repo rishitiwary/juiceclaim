@@ -413,7 +413,7 @@ export function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-gray-200 dark:border-gray-800 bg-[#f9fafb]/80 dark:bg-[#0F172A]/80 backdrop-blur-sm transition-colors duration-300">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-gray-200 dark:border-gray-800 backdrop-blur-sm transition-colors duration-300" style={{ backgroundColor: 'hsl(var(--background) / 0.8)' }}>
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <div className="flex-none">
           <Link href="/" className="block">
@@ -554,7 +554,8 @@ export function Header() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden border-t border-gray-200 dark:border-gray-800 bg-[#f9fafb] dark:bg-[#0F172A]"
+            className="md:hidden border-t border-gray-200 dark:border-gray-800"
+            style={{ backgroundColor: 'hsl(var(--background))' }}
           >
             <div className="p-4 space-y-6">
               {/* Payment Solutions Categories Mobile */}
