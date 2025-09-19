@@ -6,6 +6,7 @@ import { createChat } from '@n8n/chat';
 import { ChatBubbleIcon } from './icons/ChatBubbleIcon';
 
 export function ChatBubble() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const chatInstanceRef = useRef<any>(null);
 
   useEffect(() => {
@@ -36,7 +37,7 @@ export function ChatBubble() {
     } catch (error) {
       console.error('Error initializing chat:', error);
     }
-  }, []);
+  }, []); // Empty dependency array is correct here as we only want to initialize once
 
   const handleChatToggle = () => {
     if (chatInstanceRef.current) {

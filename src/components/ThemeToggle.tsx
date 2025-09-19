@@ -81,11 +81,25 @@ export function ThemeToggle({ className }: ThemeToggleProps) {
     setTimeout(() => setIsChanging(false), 300);
   };
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    console.log('Theme toggle touched!', { currentTheme: theme, isChanging });
+    e.preventDefault();
+    e.stopPropagation();
+    
+    if (isChanging) return; // Prevent multiple touches during transition
+    
+    setIsChanging(true);
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    console.log('Changing theme to:', newTheme);
+    setTheme(newTheme);
+    setTimeout(() => setIsChanging(false), 300);
+  };
+
   return (
     <button
       onClick={handleThemeChange}
       onMouseDown={handleThemeChange}
-      onTouchStart={handleThemeChange}
+      onTouchStart={handleTouchStart}
       className={cn(
         "relative w-6 h-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50 cursor-pointer",
         isChanging && "pointer-events-none",

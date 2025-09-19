@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 import { ThemeToggle } from './ThemeToggle';
 import {
   ChevronDown,
@@ -10,7 +11,7 @@ import {
   CreditCard,
   UserCheck,
   FileText,
-  Link,
+  Link as LinkIcon,
   Menu,
   X,
   Shield,
@@ -256,7 +257,7 @@ export function Header() {
         {
           title: t('header.insurance.link.title'),
           description: 'Create a one-time payment link with customizable options',
-          icon: Link,
+          icon: LinkIcon,
           href: '/pay-link',
         },
         {
@@ -354,7 +355,7 @@ export function Header() {
         {
           title: 'Pay Link',
           description: 'Create a one-time payment link with customizable options',
-          icon: Link,
+          icon: LinkIcon,
           href: '/pay-link',
         },
         {
@@ -415,13 +416,13 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-gray-200 dark:border-gray-800 bg-[#f9fafb]/80 dark:bg-[#0F172A]/80 backdrop-blur-sm transition-colors duration-300">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <div className="flex-none">
-          <a href="/" className="block">
+          <Link href="/" className="block">
             <img
               src="Juice.png"
               alt="Juice"
               className="h-8"
             />
-          </a>
+          </Link>
         </div>
 
         {/* Desktop Navigation */}

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, HelpCircle, ChevronRight, ChevronLeft } from 'lucide-react';
 
@@ -46,13 +46,13 @@ export function HelpSidebarBase({ isOpen, onClose, content }: HelpSidebarProps) 
   };
 
   // Handle mouse move during dragging for resize
-  const handleMouseMove = (e: MouseEvent) => {
+  const handleMouseMove = useCallback((e: MouseEvent) => {
     if (!isDragging) return;
     const newWidth = startWidth - (e.clientX - startX);
     if (newWidth >= minWidth && newWidth <= maxWidth) {
       setWidth(newWidth);
     }
-  };
+  }, [isDragging, startWidth, startX, minWidth, maxWidth]);
 
   // Handle the end of dragging for resize
   const handleMouseUp = () => {
@@ -70,7 +70,7 @@ export function HelpSidebarBase({ isOpen, onClose, content }: HelpSidebarProps) 
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseup', handleMouseUp);
     };
-  }, [isDragging]);
+  }, [isDragging, handleMouseMove]);
 
   // Handle clicking outside the sidebar to close it
   useEffect(() => {
@@ -116,7 +116,7 @@ export function HelpSidebarBase({ isOpen, onClose, content }: HelpSidebarProps) 
       x: 0,
       opacity: 1,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 400,
         damping: 40
       }
@@ -125,7 +125,7 @@ export function HelpSidebarBase({ isOpen, onClose, content }: HelpSidebarProps) 
       x: "100%",
       opacity: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 400,
         damping: 40
       }
@@ -137,14 +137,14 @@ export function HelpSidebarBase({ isOpen, onClose, content }: HelpSidebarProps) 
       opacity: 1,
       transition: {
         duration: 0.2,
-        ease: "easeOut"
+        ease: [0.4, 0, 0.2, 1] as const
       }
     },
     closed: {
       opacity: 0,
       transition: {
         duration: 0.2,
-        ease: "easeIn"
+        ease: [0.4, 0, 0.2, 1] as const
       }
     }
   };
