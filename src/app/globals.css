@@ -1186,7 +1186,7 @@ body[data-theme=dark] .hljs-deletion {
 
 .chat-window-wrapper .chat-window-toggle {
   flex: 0 0 auto;
-  background: var(--chat--toggle--background);
+  background: transparent !important;
   color: var(--chat--toggle--color);
   cursor: pointer;
   width: var(--chat--toggle--width, var(--chat--toggle--size));
@@ -1312,6 +1312,19 @@ body[data-theme=dark] .hljs-deletion {
   animation: none;
   transform: scale(1.1);
   filter: drop-shadow(0 0 5px rgba(0,120,255,.5))
+}
+
+/* Hide SVG icons in chat window toggle */
+.chat-window-toggle svg {
+  display: none !important;
+}
+
+.chat-button-wrapper svg {
+  display: none !important;
+}
+
+.n8n-chat .chat-window-toggle .chat-toggle svg {
+  display: none !important;
 }
 
 *,:before,:after {
