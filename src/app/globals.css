@@ -946,7 +946,7 @@ body[data-theme=dark] .hljs-deletion {
 }
 
 .chat-layout .chat-body {
-  background: var(--chat--body--background, var(--chat--color-light));
+  background: #fff !important;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -1008,7 +1008,7 @@ body[data-theme=dark] .hljs-deletion {
 }
 
 .chat-message.chat-message-from-bot:not(.chat-message-transparent) {
-  background-color: var(--chat--message--bot--background);
+  background-color: #f1f5f9 !important;
   border: var(--chat--message--bot--border, none)
 }
 
@@ -1326,6 +1326,28 @@ body[data-theme=dark] .hljs-deletion {
 .n8n-chat .chat-window-toggle .chat-toggle svg {
   display: none !important;
 }
+
+/* Header masking effect - hide content behind header when scrolling */
+header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1000 !important;
+  background: #f9fafb !important;
+}
+
+/* Dark mode header */
+.dark header {
+  background: #030712 !important;
+}
+
+/* Ensure content behind header is properly masked */
+body {
+  padding-top: 64px; /* Height of header */
+}
+
+/* Remove gradient fade - content should be completely invisible behind header */
 
 *,:before,:after {
   --tw-border-spacing-x: 0;

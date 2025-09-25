@@ -413,7 +413,7 @@ export function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-gray-200 dark:border-gray-800 backdrop-blur-sm transition-colors duration-300" style={{ backgroundColor: 'hsl(var(--background) / 0.8)' }}>
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-gray-200 dark:border-gray-800 bg-[#f9fafb]/80 dark:bg-gray-950/80 backdrop-blur-sm">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <div className="flex-none">
           <Link href="/" className="block">
