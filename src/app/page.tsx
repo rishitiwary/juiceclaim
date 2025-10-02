@@ -1,11 +1,22 @@
+'use client';
+import { useState } from 'react';
 import { ClaimsWalletMax } from '../components/ClaimsWalletMax';
 import { Footer } from '../components/Footer';
+import { OTPVerificationModal } from '../components/OTPVerificationModal';
 
 export default function Home() {
+  const [showOTPModal, setShowOTPModal] = useState(localStorage.getItem('showOTPModal') === 'true');
+
   return (
     <>
-      <ClaimsWalletMax />
-      <Footer />
+      {showOTPModal==false ? (
+        <OTPVerificationModal setShowOTPModal={setShowOTPModal} showOTPModal={showOTPModal}/>
+      ) : (
+        <>
+          <ClaimsWalletMax />
+          <Footer />
+        </>
+      )}
     </>
   );
 }
