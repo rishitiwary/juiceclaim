@@ -83,7 +83,7 @@ export function Table<T = any>({
                 className={`border-b border-gray-200 dark:border-gray-700 ${stripedClass} ${hoverClass}`}
               >
                 {columns.map((column) => {
-                  const value = column.dataIndex ? record[column.dataIndex] : record;
+                  const value = column.dataIndex ? (record as any)[column.dataIndex] : record;
                   const content = column.render ? column.render(value, record, index) : value;
                   
                   return (
