@@ -1,11 +1,10 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { CreditCard, ArrowRight } from 'lucide-react';
-import { Button } from '../ui/Button';
 
 export interface VirtualCardProps {
   onSelect: () => void;
-  cardVariants?: any;
+  cardVariants?: Variants;
 }
 
 export function VirtualCard({ onSelect, cardVariants }: VirtualCardProps) {

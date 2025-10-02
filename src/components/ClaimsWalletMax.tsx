@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Header } from './Header';
@@ -8,18 +8,10 @@ import { ChatBubble } from './ChatBubble';
 import {
   Shield,
   Clock,
-  CheckCircle2,
   ArrowRight,
-  CreditCard,
-  Copy,
   X,
-  RefreshCw,
-  Lock,
-  Globe,
   KeyRound,
   Wallet,
-  Bell,
-  FileText,
   DollarSign,
   Building2,
   MailCheck,

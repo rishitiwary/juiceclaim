@@ -1,16 +1,16 @@
 import React from 'react';
 
-export interface TableColumn<T = any> {
+export interface TableColumn<T = Record<string, unknown>> {
   key: string;
   title: string;
   dataIndex?: string;
-  render?: (value: any, record: T, index: number) => React.ReactNode;
+  render?: (value: unknown, record: T, index: number) => React.ReactNode;
   width?: string;
   align?: 'left' | 'center' | 'right';
   sortable?: boolean;
 }
 
-export interface TableProps<T = any> {
+export interface TableProps<T = Record<string, unknown>> {
   columns: TableColumn<T>[];
   data: T[];
   loading?: boolean;
@@ -20,7 +20,7 @@ export interface TableProps<T = any> {
   hover?: boolean;
 }
 
-export function Table<T = any>({
+export function Table<T = Record<string, unknown>>({
   columns,
   data,
   loading = false,
@@ -83,7 +83,7 @@ export function Table<T = any>({
                 className={`border-b border-gray-200 dark:border-gray-700 ${stripedClass} ${hoverClass}`}
               >
                 {columns.map((column) => {
-                  const value = column.dataIndex ? (record as any)[column.dataIndex] : record;
+                  const value = column.dataIndex ? (record as Record<string, unknown>)[column.dataIndex] : record;
                   const content = column.render ? column.render(value, record, index) : value;
                   
                   return (

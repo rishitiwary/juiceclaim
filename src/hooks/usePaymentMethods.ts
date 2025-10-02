@@ -5,7 +5,7 @@ export interface PaymentMethod {
   id: string;
   name: string;
   description: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string }>;
   timeframe: string;
   priority: number;
   color: string;

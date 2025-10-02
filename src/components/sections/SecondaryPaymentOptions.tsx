@@ -1,12 +1,12 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { Clock, ArrowRight, CreditCard, Landmark, MailCheck } from 'lucide-react';
 
 export interface PaymentMethod {
   id: string;
   name: string;
   description: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string }>;
   timeframe: string;
   priority: number;
   color: string;
@@ -15,7 +15,7 @@ export interface PaymentMethod {
 export interface SecondaryPaymentOptionsProps {
   paymentMethods: PaymentMethod[];
   onSelectMethod: (methodId: string) => void;
-  cardVariants?: any;
+  cardVariants?: Variants;
 }
 
 export function SecondaryPaymentOptions({ 
@@ -28,7 +28,7 @@ export function SecondaryPaymentOptions({
 
   return (
     <>
-      {secondaryMethods.map((method, index) => (
+      {secondaryMethods.map((method) => (
         <motion.div
           key={method.id}
           variants={cardVariants}

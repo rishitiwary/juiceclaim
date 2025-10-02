@@ -4,7 +4,7 @@ import { Card } from '../ui/Card';
 import { Label } from '../ui/Label';
 
 export interface Feature {
-  icon: React.ComponentType<any>;
+  icon: React.ComponentType<{ className?: string }>;
   title: string;
   description: string;
   color?: string;
@@ -37,8 +37,7 @@ const defaultFeatures: Feature[] = [
 ];
 
 export function AdditionalFeatures({ 
-  features = defaultFeatures, 
-  title = "Additional Features" 
+  features = defaultFeatures
 }: AdditionalFeaturesProps) {
   return (
     <div className="max-w-5xl mx-auto">

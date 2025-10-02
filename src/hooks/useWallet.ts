@@ -18,7 +18,7 @@ export interface UseWalletReturn {
 }
 
 export function useWallet(): UseWalletReturn {
-  const [walletData, setWalletData] = useState<WalletData>({
+  const [walletData] = useState<WalletData>({
     balance: 4750.00
   });
 

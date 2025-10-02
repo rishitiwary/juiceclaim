@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 
-export function OTPVerificationModal({setShowOTPModal, showOTPModal}: {setShowOTPModal: (showOTPModal: boolean) => void, showOTPModal: boolean}) {
+export function OTPVerificationModal({setShowOTPModal}: {setShowOTPModal: (showOTPModal: boolean) => void}) {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
@@ -43,7 +43,7 @@ export function OTPVerificationModal({setShowOTPModal, showOTPModal}: {setShowOT
                   Valid passwords: "123456", "admin", "test"
                 </p>
                 <p className="text-xs text-yellow-700 dark:text-yellow-300">
-                  Current state: {showOTPModal ? 'Modal Open' : 'Modal Closed'}
+                  Current state: Modal Open
                 </p>
               </div>
             )} */}
