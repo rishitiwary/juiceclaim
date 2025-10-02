@@ -33,6 +33,21 @@ export function OTPVerificationModal({setShowOTPModal, showOTPModal}: {setShowOT
         </h2>
         <form onSubmit={handleSubmit}>
           <div className="space-y-4">
+            {/* DEBUG FIELD - NON-PRODUCTION */}
+            {/* {process.env.NODE_ENV === 'development' && (
+              <div className="bg-yellow-100 dark:bg-yellow-900/20 border border-yellow-300 dark:border-yellow-700 rounded-lg p-3 mb-4">
+                <p className="text-xs text-yellow-800 dark:text-yellow-200 font-medium mb-2">
+                  🚧 DEBUG MODE - NON-PRODUCTION
+                </p>
+                <p className="text-xs text-yellow-700 dark:text-yellow-300">
+                  Valid passwords: "123456", "admin", "test"
+                </p>
+                <p className="text-xs text-yellow-700 dark:text-yellow-300">
+                  Current state: {showOTPModal ? 'Modal Open' : 'Modal Closed'}
+                </p>
+              </div>
+            )} */}
+            
             <div>
               <input 
                 type="password" 
