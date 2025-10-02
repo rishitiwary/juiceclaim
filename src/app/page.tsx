@@ -5,12 +5,11 @@ import { Footer } from '../components/Footer';
 import { OTPVerificationModal } from '../components/OTPVerificationModal';
 
 export default function Home() {
-  const [showOTPModal, setShowOTPModal] = useState(localStorage.getItem('showOTPModal') === 'true');
-
+  const [showOTPModal, setShowOTPModal] = useState(false);
   return (
     <>
       {showOTPModal==false ? (
-        <OTPVerificationModal setShowOTPModal={setShowOTPModal} showOTPModal={showOTPModal}/>
+        <OTPVerificationModal setShowOTPModal={setShowOTPModal}/>
       ) : (
         <>
           <ClaimsWalletMax />

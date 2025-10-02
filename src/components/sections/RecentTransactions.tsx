@@ -68,9 +68,9 @@ export function RecentTransactions({
       title: 'Status',
       dataIndex: 'status',
       width: '120px',
-      render: (status: string) => (
+      render: (value: unknown) => (
         <span className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400">
-          {status}
+          {value as string}
         </span>
       )
     },

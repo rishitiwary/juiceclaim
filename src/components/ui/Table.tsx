@@ -94,7 +94,7 @@ export function Table<T = Record<string, unknown>>({
                         column.align === 'right' ? 'text-right' : 'text-left'
                       }`}
                     >
-                      {content}
+                      {content as React.ReactNode}
                     </td>
                   );
                 })}

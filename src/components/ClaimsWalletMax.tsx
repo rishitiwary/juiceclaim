@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Header } from './Header';
 import { ChatBubble } from './ChatBubble';
@@ -13,10 +12,6 @@ import {
   KeyRound,
   Wallet,
   DollarSign,
-  Building2,
-  MailCheck,
-  Landmark,
-  AlertTriangle,
   Check
 } from 'lucide-react';
 import { HelpSidebarBase } from './HelpSidebarBase';
@@ -34,7 +29,6 @@ import { usePaymentMethods } from '../hooks/usePaymentMethods';
 import { useWallet } from '../hooks/useWallet';
 
 export function ClaimsWalletMax() {
-  const { t } = useTranslation();
   const [showCardDetails, setShowCardDetails] = useState(false);
   const [showOTPModal, setShowOTPModal] = useState(false);
   const [otp, setOtp] = useState('');
@@ -46,11 +40,10 @@ export function ClaimsWalletMax() {
   const [transferSuccess, setTransferSuccess] = useState(false);
   const [showTransferModal, setShowTransferModal] = useState(false);
   const [modalPaymentMethod, setModalPaymentMethod] = useState('');
-  const [copied, setCopied] = useState(false);
   
   // Use custom hooks for data management
-  const { walletData, virtualCard, refreshWallet } = useWallet();
-  const { paymentMethods, activePaymentMethod, selectPaymentMethod } = usePaymentMethods();
+  const { walletData } = useWallet();
+  const { paymentMethods, selectPaymentMethod } = usePaymentMethods();
 
   const toggleHelpSidebar = () => {
     setIsHelpOpen(!isHelpOpen);
@@ -73,11 +66,6 @@ export function ClaimsWalletMax() {
     }
   };
 
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
 
   const handleSelectPaymentMethod = (methodId: string) => {
     selectPaymentMethod(methodId);
@@ -86,14 +74,6 @@ export function ClaimsWalletMax() {
     if (method) {
       setModalPaymentMethod(method.name);
       setShowTransferModal(true);
-    }
-  };
-
-  const handleShowCardDetails = () => {
-    if (!showCardDetails) {
-      setShowOTPModal(true);
-    } else {
-      setShowCardDetails(false);
     }
   };
 
@@ -118,10 +98,11 @@ export function ClaimsWalletMax() {
       }, 2000);
     }, 1500);
   };
-  
+
   const handleRefreshWallet = () => {
-    setShowTransferModal(true);
+    setShowOTPModal(true);
   };
+  
 
   // Animation variants
   const cardContainerVariants = {
@@ -151,7 +132,7 @@ export function ClaimsWalletMax() {
           <div className="max-w-5xl mx-auto mb-10">
             <ClaimsWalletCardPlus 
               balance={walletData.balance}
-              onRefresh={refreshWallet}
+              onRefresh={handleRefreshWallet}
             />
           </div>
 

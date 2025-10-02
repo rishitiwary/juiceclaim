@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
-import { Clock, ArrowRight, CreditCard, Landmark, MailCheck } from 'lucide-react';
+import { Clock, ArrowRight } from 'lucide-react';
 
 export interface PaymentMethod {
   id: string;
